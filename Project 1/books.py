@@ -11,12 +11,13 @@ BOOKS = [
     {'title': 'Title Five', 'author': 'Author Five', 'category': 'math'},
     {'title': 'Title Six', 'author': 'Author Two', 'category': 'math'}
 ]
-
-@app.get("/books")
+#🎁🎁🎁fastapi read = http get
+ 
+@app.get("/books") # http://127.0.0.1:8000/books
 async def read_all_books():
     return BOOKS
-
-@app.get("/books/{book_title}")
+#dynamic parameters
+@app.get("/books/{book_title}") # http://127.0.0.1:8000/books/dynamic%20parameters
 async def read_book(book_title: str):
     for book in BOOKS:
         if str(book.get('title')).casefold() == book_title.casefold():
